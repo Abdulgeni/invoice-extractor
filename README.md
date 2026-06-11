@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Invoice & Document Data Extractor
 
-## Getting Started
+Upload any invoice or receipt — AI extracts vendor, invoice number, date, total amount, and line items automatically. Export to CSV for accounting integration.
 
-First, run the development server:
+## Live Demo
 
-```bash
+https://invoice-extractor-coral-nu.vercel.app
+
+## Features
+
+- Upload PNG, JPG, or JPEG invoices
+- AI extracts Vendor, Invoice Number, Date, Total Amount
+- Line item extraction with quantities and prices
+- Download extracted data as CSV
+- Clean, professional UI
+- Real AI — no templates or keyword matching
+
+## Tech Stack
+
+Next.js 16 | TypeScript | Tailwind CSS | Gemini 2.5 Flash Vision | @google/genai | Vercel
+
+## Quick Start
+
+git clone https://github.com/Abdulgeni/invoice-extractor.git
+cd invoice-extractor
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create .env.local and add:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+GEMINI_API_KEY=your_gemini_api_key_here
 
-## Learn More
+Get a free key at aistudio.google.com/apikey
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+invoice-extractor/
+  app/
+    api/
+      extract/route.ts    Upload + AI extraction
+      export/route.ts     CSV export
+    layout.tsx
+    page.tsx
+  components/
+    InvoiceUploader.tsx   Upload UI + results
+  lib/
+    gemini.ts            Gemini Vision API
+  package.json
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Example Output
 
-## Deploy on Vercel
+Vendor: East Repair Inc.
+Invoice Number: US-001
+Date: 2019-11-02
+Total Amount: $154.06
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How It Works
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. User uploads invoice image (PNG/JPG)
+2. Image is sent to Gemini Vision API
+3. AI analyzes the image and extracts text
+4. Structured JSON is returned
+5. Data is displayed in a clean table
+6. User can download as CSV
+
+## Author
+
+Abdulgeni — github.com/Abdulgeni
+
+Built with Next.js, TypeScript, and Google Gemini AI.
