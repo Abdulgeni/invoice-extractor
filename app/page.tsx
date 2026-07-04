@@ -1,8 +1,9 @@
-import InvoiceUploader from '@/components/InvoiceUploader';
+import React from 'react';
+import InvoiceUploader from '../components/InvoiceUploader';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <main className="min-h-screen bg-slate-950 py-12 md:py-20">
       <InvoiceUploader />
     </main>
   );
