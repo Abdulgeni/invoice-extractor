@@ -10,8 +10,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://invoice-extractor-coral-nu.vercel.app"),
   title: "Synthetix — AI Invoice Extraction Suite",
-  description: "Enterprise-grade document intelligence platform powered by generative analysis models to automatically extract metadata, line items, and financial values from invoices.",
+  description:
+    "Enterprise-grade document intelligence platform powered by generative analysis models to automatically extract metadata, line items, and financial values from invoices.",
 };
 
 export const viewport: Viewport = {
@@ -20,7 +22,11 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
